@@ -19,7 +19,7 @@ export default function Hero() {
                     transition={{ duration: 0.8 }}
                 >
                     <h2 className="text-sky-400 font-medium mb-4 tracking-wide">HELLO, I&apos;M</h2>
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight whitespace-nowrap">
+                    <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight whitespace-nowrap">
                         <span className="text-gradient">Santhoshkumar G</span>
                     </h1>
                     <h3 className="text-2xl md:text-3xl text-slate-300 mb-8">
