@@ -33,14 +33,14 @@ export default function Hero() {
                     <div className="flex flex-wrap gap-4">
                         <a
                             href="#contact"
-                            className="px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full font-medium hover:shadow-lg hover:shadow-sky-500/25 transition-all flex items-center gap-2 group"
+                            className="px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full font-medium hover:shadow-lg hover:shadow-sky-500/25 transition-all flex items-center gap-2 group cursor-target"
                         >
                             Contact Me
                             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </a>
                         <a
-                            href="/resume.pdf" // Placeholder for resume
-                            className="px-8 py-3 glass rounded-full font-medium hover:bg-white/10 transition-all flex items-center gap-2"
+                            href="/Resume.pdf" // Placeholder for resume
+                            className="px-8 py-3 glass rounded-full font-medium hover:bg-white/10 transition-all flex items-center gap-2 cursor-target"
                         >
                             Download Resume
                             <Download size={18} />

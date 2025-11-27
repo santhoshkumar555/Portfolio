@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import GlareHover from './GlareHover';
 
 const skillCategories = [
     {
@@ -50,21 +51,32 @@ export default function Skills() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="glass p-6 rounded-xl hover:bg-white/5 transition-colors"
                         >
-                            <h3 className={`text-xl font-bold mb-4 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
-                                {category.title}
-                            </h3>
-                            <div className="flex flex-wrap gap-2">
-                                {category.skills.map((skill) => (
-                                    <span
-                                        key={skill}
-                                        className="px-3 py-1 bg-white/5 rounded-full text-sm text-slate-300 border border-white/10"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
+                            <GlareHover
+                                width="100%"
+                                height="100%"
+                                borderRadius="0.75rem" // rounded-xl
+                                background="rgba(255, 255, 255, 0.03)"
+                                borderColor="rgba(255, 255, 255, 0.1)"
+                                glareOpacity={0.3}
+                                className="glass"
+                            >
+                                <div className="p-6 w-full h-full flex flex-col items-start">
+                                    <h3 className={`text-xl font-bold mb-4 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
+                                        {category.title}
+                                    </h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {category.skills.map((skill) => (
+                                            <span
+                                                key={skill}
+                                                className="px-3 py-1 bg-white/5 rounded-full text-sm text-slate-300 border border-white/10"
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </GlareHover>
                         </motion.div>
                     ))}
                 </div>

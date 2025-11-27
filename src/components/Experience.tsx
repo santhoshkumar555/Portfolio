@@ -21,8 +21,8 @@ const education = [
     {
         degree: 'Master of Computer Applications (MCA)',
         institution: 'Bangalore University, HIMS',
-        period: '2023 – Pursuing',
-        score: ''
+        period: '2023 – 2025',
+        score: 'Status: Results Awaited'
     },
     {
         degree: 'Bachelor of Computer Applications (BCA)',

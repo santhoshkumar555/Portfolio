@@ -31,7 +31,7 @@ export default function Navbar() {
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                <Link href="/" className="text-2xl font-bold tracking-tighter">
+                <Link href="/" className="text-2xl font-bold tracking-tighter cursor-target">
                     <span className="text-gradient">SK</span>
                 </Link>
 
@@ -41,7 +41,7 @@ export default function Navbar() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium text-slate-300 hover:text-white transition-colors relative group"
+                            className="text-sm font-medium text-slate-300 hover:text-white transition-colors relative group cursor-target"
                         >
                             {link.name}
                             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-sky-400 transition-all group-hover:w-full" />
@@ -51,7 +51,7 @@ export default function Navbar() {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-white"
+                    className="md:hidden text-white cursor-target"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

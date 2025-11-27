@@ -16,7 +16,7 @@ export default function Footer() {
                         href="https://github.com/santhoshkumar555"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-slate-400 hover:text-white transition-colors"
+                        className="text-slate-400 hover:text-white transition-colors cursor-target"
                     >
                         <Github size={20} />
                     </a>
@@ -24,19 +24,19 @@ export default function Footer() {
                         href="https://www.linkedin.com/in/santhosh-kumar-g-415927370"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-slate-400 hover:text-blue-400 transition-colors"
+                        className="text-slate-400 hover:text-blue-400 transition-colors cursor-target"
                     >
                         <Linkedin size={20} />
                     </a>
                     <a
                         href="mailto:santhoshkumar.g9845@gmail.com"
-                        className="text-slate-400 hover:text-red-400 transition-colors"
+                        className="text-slate-400 hover:text-red-400 transition-colors cursor-target"
                     >
                         <Mail size={20} />
                     </a>
                     <a
                         href="tel:9353864326"
-                        className="text-slate-400 hover:text-green-400 transition-colors"
+                        className="text-slate-400 hover:text-green-400 transition-colors cursor-target"
                     >
                         <Phone size={20} />
                     </a>

@@ -1,9 +1,36 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
+import { submitContactForm } from '@/actions/contact';
 
 export default function Contact() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+
+    async function handleSubmit(formData: FormData) {
+        setIsSubmitting(true);
+        setMessage(null);
+
+        try {
+            const result = await submitContactForm(formData);
+
+            if (result.error) {
+                setMessage({ type: 'error', text: result.error });
+            } else if (result.success) {
+                setMessage({ type: 'success', text: result.success });
+                // Optional: Reset form here if needed, but native form reset is tricky with controlled inputs unless we switch to uncontrolled or use a ref.
+                // For simplicity, we'll just show the success message.
+                (document.getElementById('contact-form') as HTMLFormElement)?.reset();
+            }
+        } catch (error) {
+            setMessage({ type: 'error', text: 'Something went wrong. Please try again.' });
+        } finally {
+            setIsSubmitting(false);
+        }
+    }
+
     return (
         <section id="contact" className="section-padding relative overflow-hidden">
             {/* Background Glow */}
@@ -45,7 +72,7 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <p className="text-sm text-slate-500">Email</p>
-                                    <a href="mailto:santhoshkumar.g9845@gmail.com" className="text-white hover:text-sky-400 transition-colors">
+                                    <a href="mailto:santhoshkumar.g9845@gmail.com" className="text-white hover:text-sky-400 transition-colors cursor-target">
                                         santhoshkumar.g9845@gmail.com
                                     </a>
                                 </div>
@@ -57,7 +84,7 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <p className="text-sm text-slate-500">Phone</p>
-                                    <a href="tel:9353864326" className="text-white hover:text-purple-400 transition-colors">
+                                    <a href="tel:9353864326" className="text-white hover:text-purple-400 transition-colors cursor-target">
                                         +91 9353864326
                                     </a>
                                 </div>
@@ -83,12 +110,14 @@ export default function Contact() {
                         transition={{ duration: 0.6 }}
                         className="glass p-8 rounded-2xl"
                     >
-                        <form className="space-y-6">
+                        <form id="contact-form" action={handleSubmit} className="space-y-6">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label className="block text-sm font-medium text-slate-400 mb-2">Name</label>
                                     <input
+                                        name="name"
                                         type="text"
+                                        required
                                         className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 transition-colors"
                                         placeholder="Your Name"
                                     />
@@ -96,7 +125,9 @@ export default function Contact() {
                                 <div>
                                     <label className="block text-sm font-medium text-slate-400 mb-2">Email</label>
                                     <input
+                                        name="email"
                                         type="email"
+                                        required
                                         className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 transition-colors"
                                         placeholder="your@email.com"
                                     />
@@ -105,7 +136,9 @@ export default function Contact() {
                             <div>
                                 <label className="block text-sm font-medium text-slate-400 mb-2">Subject</label>
                                 <input
+                                    name="subject"
                                     type="text"
+                                    required
                                     className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 transition-colors"
                                     placeholder="Project Inquiry"
                                 />
@@ -113,17 +146,38 @@ export default function Contact() {
                             <div>
                                 <label className="block text-sm font-medium text-slate-400 mb-2">Message</label>
                                 <textarea
+                                    name="message"
                                     rows={4}
+                                    required
                                     className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-sky-500 transition-colors"
                                     placeholder="Your message here..."
                                 />
                             </div>
+
+                            {message && (
+                                <div className={`p-4 rounded-lg flex items-center gap-2 text-sm ${message.type === 'success' ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'
+                                    }`}>
+                                    {message.type === 'success' ? <CheckCircle2 size={18} /> : null}
+                                    {message.text}
+                                </div>
+                            )}
+
                             <button
                                 type="submit"
-                                className="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-medium py-3 rounded-lg hover:shadow-lg hover:shadow-sky-500/25 transition-all flex items-center justify-center gap-2"
+                                disabled={isSubmitting}
+                                className="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-medium py-3 rounded-lg hover:shadow-lg hover:shadow-sky-500/25 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed cursor-target"
                             >
-                                Send Message
-                                <Send size={18} />
+                                {isSubmitting ? (
+                                    <>
+                                        <Loader2 size={18} className="animate-spin" />
+                                        Sending...
+                                    </>
+                                ) : (
+                                    <>
+                                        Send Message
+                                        <Send size={18} />
+                                    </>
+                                )}
                             </button>
                         </form>
                     </motion.div>
