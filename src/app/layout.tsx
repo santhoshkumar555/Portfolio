@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DotGrid from "@/components/DotGrid";
 import TargetCursor from "@/components/TargetCursor";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,6 +41,7 @@ export default function RootLayout({
         <main className="min-h-screen">
           {children}
         </main>
+        <ScrollToTop />
         <Footer />
       </body>
     </html>
