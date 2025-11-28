@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 import { submitContactForm } from '@/actions/contact';
+import ParticleBackground from './ParticleBackground';
 
 export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,6 +36,7 @@ export default function Contact() {
         <section id="contact" className="section-padding relative overflow-hidden">
             {/* Background Glow */}
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl -z-10" />
+            <ParticleBackground />
 
             <div className="max-w-7xl mx-auto">
                 <motion.div

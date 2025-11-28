@@ -2,14 +2,16 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
+import { TypeAnimation } from 'react-type-animation';
+import InteractiveAvatar from './InteractiveAvatar';
 
 export default function Hero() {
     return (
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
             {/* Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl animate-pulse" />
+                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
@@ -20,11 +22,25 @@ export default function Hero() {
                 >
                     <h2 className="text-sky-400 font-medium mb-4 tracking-wide">HELLO, I&apos;M</h2>
                     <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight whitespace-nowrap">
-                        <span className="text-gradient">Santhoshkumar G</span>
+                        <span className="text-gradient">Santhosh Kumar G</span>
                     </h1>
-                    <h3 className="text-2xl md:text-3xl text-slate-300 mb-8">
-                        Full Stack Developer & <br />
-                        <span className="text-teal-400">AI Enthusiast</span>
+                    <h3 className="text-2xl md:text-3xl text-slate-300 mb-8 h-[80px] md:h-auto">
+                        <TypeAnimation
+                            sequence={[
+                                'Full Stack Developer',
+                                1000,
+                                'AI Enthusiast',
+                                1000,
+                                'Problem Solver',
+                                1000,
+                                'Web Developer',
+                                1000,
+                            ]}
+                            wrapper="span"
+                            speed={50}
+                            repeat={Infinity}
+                            className="text-teal-400"
+                        />
                     </h3>
                     <p className="text-slate-400 text-lg mb-8 max-w-lg leading-relaxed">
                         Building scalable, real-world software solutions with modern web technologies and AI integration.
@@ -56,9 +72,8 @@ export default function Hero() {
                 >
                     <div className="relative w-80 h-80 md:w-96 md:h-96 mx-auto">
                         <div className="absolute inset-0 bg-gradient-to-br from-sky-500 to-purple-600 rounded-full blur-2xl opacity-50 animate-pulse" />
-                        <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 glass flex items-center justify-center bg-slate-900">
-                            {/* Placeholder for Profile Image */}
-                            <span className="text-6xl">👨‍💻</span>
+                        <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 glass flex items-center justify-center bg-slate-900/50">
+                            <InteractiveAvatar />
                         </div>
                     </div>
                 </motion.div>

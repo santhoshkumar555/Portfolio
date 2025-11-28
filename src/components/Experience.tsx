@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Briefcase, GraduationCap, Calendar } from 'lucide-react';
+import ParticleBackground from './ParticleBackground';
 
 const experiences = [
     {
@@ -36,6 +37,7 @@ export default function Experience() {
     return (
         <section id="experience" className="section-padding bg-slate-900/50">
             <div className="max-w-7xl mx-auto">
+                <ParticleBackground />
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
