@@ -56,6 +56,8 @@ export default function Hero() {
                         </a>
                         <a
                             href="/Resume.pdf" // Placeholder for resume
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="px-8 py-3 glass rounded-full font-medium hover:bg-white/10 transition-all flex items-center gap-2 cursor-target"
                         >
                             Download Resume

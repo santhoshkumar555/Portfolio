@@ -64,49 +64,66 @@ export default function ParticleBackground() {
             }
         };
 
+        let isVisible = true;
+
         const animate = () => {
             if (!ctx) return;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (isVisible) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
 
-            // Draw connections
-            particles.forEach((a, index) => {
-                for (let i = index + 1; i < particles.length; i++) {
-                    const b = particles[i];
-                    const dx = a.x - b.x;
-                    const dy = a.y - b.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+                // Draw connections
+                particles.forEach((a, index) => {
+                    for (let i = index + 1; i < particles.length; i++) {
+                        const b = particles[i];
+                        const dx = a.x - b.x;
+                        const dy = a.y - b.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 100) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(100, 116, 139, ${0.1 - distance / 1000})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(a.x, a.y);
-                        ctx.lineTo(b.x, b.y);
-                        ctx.stroke();
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(100, 116, 139, ${0.1 - distance / 1000})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(a.x, a.y);
+                            ctx.lineTo(b.x, b.y);
+                            ctx.stroke();
+                        }
                     }
-                }
-            });
+                });
+            }
 
             animationFrameId = requestAnimationFrame(animate);
         };
 
         window.addEventListener('resize', () => {
             resizeCanvas();
-            init();
+            if (isVisible) {
+                init();
+            }
         });
 
         resizeCanvas();
         init();
         animate();
 
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                isVisible = entry.isIntersecting;
+            },
+            { threshold: 0 }
+        );
+
+        observer.observe(canvas);
+
         return () => {
             window.removeEventListener('resize', resizeCanvas);
             cancelAnimationFrame(animationFrameId);
+            observer.disconnect();
         };
     }, []);
 
