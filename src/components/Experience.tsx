@@ -7,6 +7,28 @@ import ParticleBackground from './ParticleBackground';
 const experiences = [
     {
         type: 'work',
+        role: 'Full Stack Developer',
+        company: 'HomeAdda',
+        period: 'Sept 2025 – March 2026',
+        description: [
+            'Architected robust server-side logic using Node.js, PHP, and Python, while seamlessly integrating REST APIs and JWT.',
+            'Designed and managed complex database systems using MongoDB and SQL to support comprehensive property search systems.',
+            'Bridged legacy technologies like PHP with modern JavaScript frameworks, significantly enhancing security and development workflows.'
+        ]
+    },
+    {
+        type: 'work',
+        role: 'Intern',
+        company: 'HomeAdda',
+        period: 'July 2025 – Aug 2025',
+        description: [
+            'Developed modern, responsive frontend interfaces utilizing React.js, Next.js, and Tailwind CSS.',
+            'Streamlined deployment processes via Vercel, Netlify, and FTP, and managed version control through Git.',
+            'Conducted rigorous API testing using Postman to ensure stable backend interactions.'
+        ]
+    },
+    {
+        type: 'work',
         role: 'Web Development Intern',
         company: 'Zidio Development',
         period: 'Aug 2025 – Nov 2025',
@@ -22,8 +44,8 @@ const education = [
     {
         degree: 'Master of Computer Applications (MCA)',
         institution: 'Bangalore University, HIMS',
-        period: '2023 – 2025',
-        score: 'Status: Results Awaited'
+        period: '2023 – 2026',
+        score: 'CGPA: 7.70'
     },
     {
         degree: 'Bachelor of Computer Applications (BCA)',

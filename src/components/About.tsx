@@ -19,12 +19,10 @@ export default function About() {
 
                     <div className="glass p-8 md:p-12 rounded-2xl">
                         <p className="text-slate-300 text-lg leading-relaxed mb-6">
-                            I am a motivated <span className="text-sky-400 font-medium">MCA student</span> with hands-on experience in full-stack development, AI-driven applications, and modern web technologies.
-                            My journey in tech is driven by a passion for building scalable, real-world software solutions.
+                            I am a motivated <span className="text-sky-400 font-medium">Full-Stack Developer</span> with a newly completed Master of Computer Applications. With proven expertise in modern web technologies, AI-driven applications, and architecting scalable real estate platforms, my journey in tech is driven by a passion for building scalable, real-world software solutions.
                         </p>
                         <p className="text-slate-300 text-lg leading-relaxed mb-6">
-                            With a strong foundation in <span className="text-purple-400 font-medium">C++ and Java</span>, and expertise in the <span className="text-teal-400 font-medium">MERN stack and Next.js</span>,
-                            I thrive in solving complex logical problems. I pride myself on my adaptability and academic excellence, including scoring a centum in C++ and earning the title &quot;Coding Maestro&quot;.
+                            Highly skilled in the <span className="text-purple-400 font-medium">MERN stack, Next.js, and PHP</span>, I excel at bridging legacy systems with modern architectures to streamline deployments. I am known for strong logical thinking, adaptability, and a commitment to high-quality code and platform security, alongside academic achievements such as a centum in C++ and the title &quot;Coding Maestro&quot;.
                         </p>
                         <p className="text-slate-300 text-lg leading-relaxed">
                             Currently, I am exploring the intersection of web development and AI, working on projects like <span className="text-white font-medium">Streamify AI</span> to break language barriers in communication.

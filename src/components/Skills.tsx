@@ -6,9 +6,10 @@ import {
     SiCplusplus, SiJavascript, SiTypescript,
     SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiTailwindcss,
     SiMongodb, SiMysql,
-    SiStripe, SiWebrtc, SiGit, SiWix
+    SiStripe, SiWebrtc, SiGit, SiWix,
+    SiPhp, SiPython, SiHtml5, SiCss3, SiBootstrap, SiVercel, SiNetlify, SiPostman
 } from 'react-icons/si';
-import { FaJava, FaNewspaper } from 'react-icons/fa';
+import { FaJava, FaNewspaper, FaDatabase } from 'react-icons/fa';
 
 const skillCategories = [
     {
@@ -17,7 +18,8 @@ const skillCategories = [
             { name: "C++", icon: SiCplusplus },
             { name: "Java", icon: FaJava },
             { name: "JavaScript", icon: SiJavascript },
-            { name: "TypeScript", icon: SiTypescript }
+            { name: "PHP", icon: SiPhp },
+            { name: "Python", icon: SiPython }
         ],
         color: "from-blue-500 to-cyan-500"
     },
@@ -28,7 +30,8 @@ const skillCategories = [
             { name: "Next.js", icon: SiNextdotjs },
             { name: "Node.js", icon: SiNodedotjs },
             { name: "Express.js", icon: SiExpress },
-            { name: "Tailwind CSS", icon: SiTailwindcss }
+            { name: "Tailwind", icon: SiTailwindcss },
+            { name: "HTML & CSS", icon: SiHtml5 }
         ],
         color: "from-purple-500 to-pink-500"
     },
@@ -36,7 +39,8 @@ const skillCategories = [
         title: "Database",
         skills: [
             { name: "MongoDB", icon: SiMongodb },
-            { name: "MySQL", icon: SiMysql }
+            { name: "MySQL", icon: SiMysql },
+            { name: "SQL", icon: FaDatabase }
         ],
         color: "from-green-500 to-emerald-500"
     },
@@ -47,7 +51,8 @@ const skillCategories = [
             { name: "WebRTC", icon: SiWebrtc },
             { name: "Git", icon: SiGit },
             { name: "Wix Studio", icon: SiWix },
-            { name: "GNews API", icon: FaNewspaper }
+            { name: "Postman", icon: SiPostman },
+            { name: "Vercel", icon: SiVercel }
         ],
         color: "from-orange-500 to-red-500"
     }
